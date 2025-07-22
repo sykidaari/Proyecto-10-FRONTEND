@@ -1,0 +1,50 @@
+@import '../../global';
+
+header {
+  background-color: $theme-color-3;
+  nav ul {
+    margin: auto;
+
+    max-width: 900px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: $spacing-M;
+
+    padding: $spacing-S $spacing-L;
+
+    .navOption {
+      font-family: $detail-font;
+      font-size: $font-M;
+
+      color: $text-color-2;
+
+      font-weight: 800;
+
+      img {
+        width: 40px;
+
+        @extend %button-base-1;
+        padding: 0;
+      }
+    }
+    li:first-of-type {
+      margin-right: auto;
+      #home h1 {
+        font-family: $title-font;
+        font-size: 30px;
+
+        background: linear-gradient(to right, $text-color-1, $text-color-2);
+        background-clip: text;
+        -webkit-background-clip: text;
+
+        -webkit-text-fill-color: transparent;
+      }
+    }
+    #login,
+    #register {
+      @extend %button-base-1;
+    }
+  }
+}

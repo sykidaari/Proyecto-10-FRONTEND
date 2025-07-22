@@ -1,0 +1,44 @@
+//FONTS
+$title-font: Lobster, Georgia, serif;
+$detail-font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+  'Lucida Sans', Arial, sans-serif;
+$main-font: Arial, Helvetica, sans-serif;
+
+// FONT-SIZES
+$font-S: 10px;
+$font-M: 15px;
+$font-L: 20px;
+
+// SPACING
+$spacing-XXS: 1px;
+$spacing-XS: 5px;
+$spacing-S: 10px;
+$spacing-M: 15px;
+$spacing-L: 20px;
+$spacing-XL: 25px;
+
+// COLORS
+$theme-color-1: #f2f3f1;
+$theme-color-2: #e8c6a1;
+$theme-color-3: #d3e4e1;
+$theme-color-4: #b3c7c4;
+$theme-color-5: #9ab7a2;
+
+$text-color-1: #2f1e4d;
+$text-color-2: #6a4c93;
+$text-color-3: #5c5c5c;
+$text-color-4: #ffffff;
+
+// PRESETS
+
+// white-green
+%button-base-1 {
+  padding: $spacing-XS $spacing-S;
+  background-color: $theme-color-1;
+  border: $spacing-XXS solid $theme-color-5;
+  border-radius: $spacing-L;
+
+  &:hover {
+    background-color: $theme-color-4;
+  }
+}
