@@ -1,10 +1,9 @@
 import './main.scss';
 import { header } from './components/header/header';
+import { fetchApi } from './utils/apiFetcher';
 
 header();
 
-const res = await fetch('http://localhost:3000/api/v1/events');
-
-const events = await res.json();
+const events = await fetchApi('events/');
 
 console.log(events);

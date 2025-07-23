@@ -31,19 +31,20 @@ header {
     }
     li:first-of-type {
       margin-right: auto;
-      #home h1 {
+      #home-link h1 {
         font-family: $title-font;
         font-size: 30px;
 
         background: linear-gradient(to right, $text-color-1, $text-color-2);
         background-clip: text;
         -webkit-background-clip: text;
-
         -webkit-text-fill-color: transparent;
+
+        color: $text-color-1;
       }
     }
-    #login,
-    #register {
+    #login-link,
+    #register-link {
       @extend %button-base-1;
     }
   }

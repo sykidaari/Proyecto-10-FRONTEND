@@ -15,7 +15,7 @@ export const header = () => {
     const a = create('a', {
       href: '#',
       className: 'navOption',
-      id: routeName
+      id: `${routeName}-link`
     });
 
     if (routeName === 'home')
