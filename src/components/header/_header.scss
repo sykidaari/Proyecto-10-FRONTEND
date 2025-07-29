@@ -2,6 +2,7 @@
 
 header {
   background-color: $theme-color-3;
+
   nav ul {
     margin: auto;
 
@@ -12,7 +13,7 @@ header {
     justify-content: flex-end;
     gap: $spacing-M;
 
-    padding: $spacing-S $spacing-L;
+    padding: $spacing-XS $spacing-L;
 
     .navOption {
       font-family: $detail-font;
@@ -21,7 +22,9 @@ header {
       color: $text-color-2;
 
       font-weight: 800;
-
+    }
+    #profile-link {
+      display: none;
       img {
         width: 40px;
 

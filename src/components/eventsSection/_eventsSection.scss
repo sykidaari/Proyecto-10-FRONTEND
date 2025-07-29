@@ -1,0 +1,28 @@
+@import '../../global';
+
+.events-section ul {
+  max-width: 900px;
+  min-height: 365px;
+
+  display: flex;
+  overflow-x: auto;
+
+  gap: $spacing-XL;
+  margin: $spacing-XL auto;
+  padding: $spacing-M;
+
+  border-radius: $spacing-L;
+  background-color: $theme-color-2;
+  border: $spacing-XXS solid $theme-color-2;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: $theme-color-2 $spacing-XS solid;
+    height: $spacing-S;
+    background-color: $theme-color-1;
+    border-radius: $spacing-L;
+  }
+}

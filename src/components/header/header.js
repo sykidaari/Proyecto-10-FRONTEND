@@ -23,7 +23,12 @@ export const header = () => {
     else a.innerText = route.text || '';
 
     if (route.icon) {
-      create('img', { src: route.icon, alt: routeName, appendTo: a });
+      create('img', {
+        src: route.icon,
+        alt: routeName,
+        className: 'profile-picture',
+        appendTo: a
+      });
     }
 
     li.appendChild(a);

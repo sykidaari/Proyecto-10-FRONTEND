@@ -1,0 +1,43 @@
+@import '../../global';
+
+.filter-section {
+  margin: $spacing-L auto;
+  max-width: 900px;
+
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    gap: $spacing-XL;
+
+    width: fit-content;
+
+    padding: $spacing-M;
+    border-radius: $spacing-L;
+    background-color: $theme-color-3;
+
+    li {
+      display: flex;
+
+      align-items: center;
+      gap: $spacing-XS;
+
+      background-color: $theme-color-1;
+      padding: $spacing-XS;
+      border-radius: $spacing-S;
+
+      label {
+        color: $text-color-3;
+        font-size: $font-SM;
+        font-weight: 600;
+      }
+
+      select {
+        background-color: $theme-color-1;
+        color: $text-color-3;
+
+        border-radius: $spacing-L;
+        font-size: $font-SM;
+      }
+    }
+  }
+}

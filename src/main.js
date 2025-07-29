@@ -1,9 +1,8 @@
 import './main.scss';
 import { header } from './components/header/header';
-import { fetchApi } from './utils/apiFetcher';
+import { main } from './components/main/main';
+import { home } from './pages/home/home';
 
 header();
-
-const events = await fetchApi('events/');
-
-console.log(events);
+const mainTag = main();
+home(mainTag);

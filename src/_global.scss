@@ -6,6 +6,7 @@ $main-font: Arial, Helvetica, sans-serif;
 
 // FONT-SIZES
 $font-S: 10px;
+$font-SM: 12.5px;
 $font-M: 15px;
 $font-L: 20px;
 
@@ -40,5 +41,15 @@ $text-color-4: #ffffff;
 
   &:hover {
     background-color: $theme-color-4;
+  }
+}
+
+%scale-up-small {
+  & {
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }

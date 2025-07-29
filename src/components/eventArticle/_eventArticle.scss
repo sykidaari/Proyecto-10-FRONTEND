@@ -1,0 +1,110 @@
+@import '../../global';
+
+.event-article {
+  height: 320px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: $spacing-S;
+
+  background-color: $theme-color-3;
+
+  border: $spacing-XS solid $theme-color-1;
+  border-radius: $spacing-M;
+
+  padding: $spacing-S;
+
+  font-size: $font-S;
+  color: $text-color-3;
+
+  .event-img-wrapper {
+    .event-img {
+      height: 150px;
+      width: 200px;
+      object-fit: contain;
+      background-color: $theme-color-1;
+
+      border-radius: $spacing-S;
+      border: $spacing-XS solid $theme-color-1;
+    }
+  }
+
+  > a {
+    width: 190px;
+    cursor: default;
+    h3 {
+      cursor: pointer;
+
+      margin: 0 $spacing-XS;
+      width: fit-content;
+      text-align: left;
+
+      font-size: $font-SM;
+      font-weight: 700;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      transform-origin: left;
+      @extend %scale-up-small;
+    }
+  }
+
+  .date {
+    background-color: $theme-color-5;
+    width: fit-content;
+    padding: 0 $spacing-XS;
+    border-radius: $spacing-S;
+    color: $text-color-4;
+  }
+
+  .address {
+    background-color: $theme-color-1;
+    padding: 0 $spacing-XS;
+    border-radius: $spacing-S;
+    font-style: italic;
+  }
+
+  .description {
+    margin: 0 $spacing-XS;
+    display: none;
+  }
+
+  .creator-div {
+    display: flex;
+    align-items: center;
+
+    margin-top: auto;
+
+    background-color: $theme-color-2;
+    border-radius: $spacing-L;
+
+    padding-right: $spacing-XS;
+    width: fit-content;
+
+    cursor: pointer;
+
+    transform-origin: left;
+    @extend %scale-up-small;
+
+    .profile-picture {
+      width: 30px;
+      background-color: $theme-color-1;
+      margin: 3px;
+      margin-right: 0;
+
+      border: 2px solid $theme-color-1;
+      z-index: 1;
+    }
+    .username {
+      background-color: $theme-color-1;
+      border-top-right-radius: $spacing-L;
+      border-bottom-right-radius: $spacing-L;
+      padding: $spacing-XS;
+      margin-left: -$spacing-XS;
+      color: $text-color-2;
+    }
+  }
+}
