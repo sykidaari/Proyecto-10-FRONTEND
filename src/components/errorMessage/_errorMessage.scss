@@ -1,0 +1,14 @@
+@import '../../global';
+
+.error-div {
+  font-family: $detail-font;
+  font-size: $font-SM;
+  margin: auto;
+  color: $text-color-3;
+  background-color: $theme-color-1;
+  border-radius: $spacing-S;
+  padding: $spacing-XS;
+  border: $spacing-XXS solid $text-color-3;
+
+  @extend %fade-in-on-creation-S;
+}

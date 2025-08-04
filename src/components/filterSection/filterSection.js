@@ -32,7 +32,7 @@ export const filterSection = (parentTag) => {
   for (const key in categoryIcons) {
     const option = create('option', {
       value: key,
-      innerText: `${key[0].toUpperCase()}${key.slice(1)}`,
+      innerText: key,
       appendTo: categorySelect
     });
   }
@@ -63,5 +63,5 @@ export const filterSection = (parentTag) => {
     appendTo: orderSelect
   });
 
-  return { categorySelect, orderSelect };
+  return filterSection;
 };

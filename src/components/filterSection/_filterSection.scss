@@ -1,8 +1,15 @@
 @import '../../global';
 
 .filter-section {
-  margin: $spacing-L auto;
+  margin: $spacing-XS auto;
   max-width: 900px;
+
+  &.error {
+    opacity: 0.5;
+    pointer-events: none;
+
+    transition: opacity 0.1s ease;
+  }
 
   ul {
     display: flex;
@@ -32,11 +39,15 @@
       }
 
       select {
+        cursor: pointer;
+
         background-color: $theme-color-1;
         color: $text-color-3;
 
         border-radius: $spacing-L;
         font-size: $font-SM;
+
+        text-transform: capitalize;
       }
     }
   }

@@ -1,0 +1,21 @@
+@import '../../global';
+
+footer {
+  height: fit-content;
+  background-color: $theme-color-3;
+  padding: $spacing-L;
+  color: $text-color-2;
+  text-align: end;
+  font-size: $font-S;
+
+  margin-top: auto;
+
+  p {
+    max-width: 900px;
+    margin: auto;
+    padding: 0 $spacing-L;
+    span {
+      font-weight: 700;
+    }
+  }
+}

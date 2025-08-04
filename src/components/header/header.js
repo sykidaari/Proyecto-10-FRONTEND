@@ -7,6 +7,8 @@ export const header = () => {
   const navBar = create('nav', { appendTo: header });
   const ul = create('ul', { appendTo: navBar });
 
+  const links = {};
+
   for (const routeName in routes) {
     const route = routes[routeName];
 
@@ -32,5 +34,8 @@ export const header = () => {
     }
 
     li.appendChild(a);
+    links[routeName] = a;
   }
+
+  return links;
 };

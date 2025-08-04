@@ -23,6 +23,15 @@ body {
   font-family: $main-font;
 
   background-color: $theme-color-1;
+
+  #app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100svh;
+
+    padding-top: 48px;
+  }
 }
 
 .profile-picture {
