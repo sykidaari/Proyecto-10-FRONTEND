@@ -1,0 +1,93 @@
+@import '../../global';
+
+.user-form {
+  border: $spacing-XS solid $theme-color-4;
+
+  margin: auto;
+
+  width: fit-content;
+  border-radius: $spacing-L;
+  padding: $spacing-S;
+  padding-top: $spacing-XL;
+
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-items: center;
+
+    position: relative;
+
+    font-size: $font-M;
+    text-align: center;
+
+    gap: $spacing-XS;
+
+    background-color: $theme-color-3;
+    padding: $spacing-L;
+    border-radius: $spacing-L;
+    color: $text-color-2;
+
+    legend {
+      text-transform: capitalize;
+
+      background-color: $theme-color-3;
+      font-size: $font-L;
+      font-family: $detail-font;
+      color: $text-color-1;
+      padding: $spacing-S;
+      border-radius: $spacing-M;
+
+      position: absolute;
+      top: -50px;
+
+      display: block;
+      width: fit-content;
+      text-align: center;
+    }
+    label {
+      font-weight: 700;
+      background-color: $theme-color-1;
+      border-radius: $spacing-M;
+      padding: $spacing-XXS $spacing-XS;
+
+      border: $spacing-XXS solid $theme-color-5;
+    }
+    input {
+      border-radius: $spacing-M;
+      width: 100%;
+      text-align: center;
+      font-size: $font-M;
+      padding: $spacing-XXS;
+      margin-bottom: $spacing-S;
+      color: $text-color-1;
+      background-color: $theme-color-1;
+
+      &:focus {
+        border: $spacing-XXS solid $theme-color-4;
+        outline: none;
+      }
+
+      &[type='file'] {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        width: 210px;
+      }
+    }
+    button {
+      cursor: pointer;
+      font-size: $spacing-L;
+      color: $text-color-2;
+      background-color: $theme-color-1;
+      border-radius: $spacing-XL;
+      width: 30px;
+      height: 30px;
+
+      border: $spacing-XXS solid $theme-color-5;
+
+      &:hover {
+        background-color: $theme-color-2;
+      }
+    }
+  }
+}

@@ -2,12 +2,12 @@ import { create } from '../../utils/elementCreator';
 import './_eventsSection.scss';
 
 export const eventsSection = ({ parentContainer }) => {
-  const eventsSection = create('section', {
+  const section = create('section', {
     className: 'events-section',
     appendTo: parentContainer
   });
 
-  const ul = create('ul', { appendTo: eventsSection });
+  const ul = create('ul', { appendTo: section });
 
-  return ul;
+  return { section, ul };
 };

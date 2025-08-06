@@ -1,28 +1,48 @@
 @import '../../global';
 
-.events-section ul {
-  max-width: 900px;
-  min-height: 365px;
+.events-section {
+  position: relative;
 
-  display: flex;
-  overflow-x: auto;
+  ul {
+    max-width: 900px;
+    min-height: 365px;
 
-  gap: $spacing-XL;
-  margin: $spacing-S auto;
-  padding: $spacing-M;
+    display: flex;
+    overflow-x: auto;
 
-  border-radius: $spacing-L;
-  background-color: $theme-color-2;
-  border: $spacing-XXS solid $theme-color-2;
+    gap: $spacing-XL;
+    margin: $spacing-S auto;
+    padding: $spacing-M;
 
-  &::-webkit-scrollbar {
-    background-color: transparent;
+    border-radius: $spacing-L;
+    background-color: $theme-color-2;
+    border: $spacing-XXS solid $theme-color-2;
+
+    &::-webkit-scrollbar {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border: $theme-color-2 $spacing-XS solid;
+      height: $spacing-S;
+      background-color: $theme-color-1;
+      border-radius: $spacing-L;
+    }
+  }
+  .error-div {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
   }
 
-  &::-webkit-scrollbar-thumb {
-    border: $theme-color-2 $spacing-XS solid;
-    height: $spacing-S;
-    background-color: $theme-color-1;
-    border-radius: $spacing-L;
+  .loader.circle {
+    position: absolute;
+    top: 47%;
+    left: 0;
+    right: 0;
+
+    width: 50px;
+    height: 50px;
   }
 }

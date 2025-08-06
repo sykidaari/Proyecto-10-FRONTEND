@@ -9,6 +9,7 @@
   border-radius: $spacing-S;
   padding: $spacing-XS;
   border: $spacing-XXS solid $text-color-3;
+  width: fit-content;
 
   @extend %fade-in-on-creation-S;
 }

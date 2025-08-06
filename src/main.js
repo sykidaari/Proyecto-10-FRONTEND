@@ -4,6 +4,7 @@ import { main } from './components/main/main';
 import { home } from './pages/home/home';
 import { headerEvents } from './components/header/headerEvents';
 import { footer } from './components/footer/footer';
+import { login } from './pages/login/login';
 
 const links = header();
 const mainTag = main();
