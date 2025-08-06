@@ -1,6 +1,9 @@
 import { BASE_URL } from '../config';
 
-export const fetchApi = async (path, { method = 'GET', token, data } = {}) => {
+export const fetchApi = async (
+  path,
+  { method = 'GET', token, data, json = false } = {}
+) => {
   const url = `${BASE_URL}${path}`;
   const headers = {};
 
@@ -14,7 +17,12 @@ export const fetchApi = async (path, { method = 'GET', token, data } = {}) => {
   };
 
   if (method !== 'GET' && data) {
-    options.body = data;
+    if (json) {
+      headers['Content-Type'] = 'application/json';
+      options.body = JSON.stringify(data);
+    } else {
+      options.body = data;
+    }
   }
 
   const res = await fetch(url, options);

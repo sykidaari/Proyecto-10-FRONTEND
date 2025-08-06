@@ -15,7 +15,9 @@ export const login = async (main) => {
     const userValue = userNameOrEmailAddress.value;
     const passwordValue = password.value;
 
-    const userKey = userValue.includes('@') ? 'emailAddress' : 'userName';
+    const isEmail = userValue.includes('@');
+
+    const userKey = isEmail ? 'emailAddress' : 'userName';
 
     const data = {
       [userKey]: userValue,
@@ -24,6 +26,12 @@ export const login = async (main) => {
 
     console.log(data);
 
-    // fetchApi();
+    try {
+      const user = fetchApi('users/login', {
+        method: 'POST',
+        data,
+        json: true
+      });
+    } catch (error) {}
   });
 };
