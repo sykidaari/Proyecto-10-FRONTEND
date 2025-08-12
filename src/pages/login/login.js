@@ -1,16 +1,29 @@
-import { userForm } from '../../components/userForm/userForm';
+import { emptyInputError } from '../../components/errorHandlers/emptyInputError/emptyInputError';
+import { errorMessage } from '../../components/errorHandlers/errorMessage/errorMessage';
+import { loader } from '../../components/loader/loader';
+import { form } from '../../components/form/form';
 import { fetchApi } from '../../utils/apiFetcher';
+import { removeOldElement } from '../../utils/removeOldElement';
+import { home } from '../home/home';
 
 export const login = async (main) => {
-  main.innerHTML = '';
+  const { formElement, inputs } = form({
+    parentContainer: main,
+    option: 'login',
+    type: 'user',
+    blurParent: true
+  });
 
-  const {
-    form,
-    inputs: { userNameOrEmailAddress, password }
-  } = userForm({ parentContainer: main, option: 'login' });
+  const { userNameOrEmailAddress, password } = inputs;
 
-  form.addEventListener('submit', (e) => {
+  formElement.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    removeOldElement('.error-div');
+
+    if (emptyInputError(inputs)) return;
+
+    const loaderElement = loader(formElement);
 
     const userValue = userNameOrEmailAddress.value;
     const passwordValue = password.value;
@@ -24,14 +37,32 @@ export const login = async (main) => {
       password: passwordValue
     };
 
-    console.log(data);
-
     try {
-      const user = fetchApi('users/login', {
+      const user = await fetchApi('users/login', {
         method: 'POST',
         data,
         json: true
       });
-    } catch (error) {}
+
+      if (user.error) {
+        errorMessage({
+          parentContainer: formElement,
+          innerText: user.error.message,
+          removeOld: true
+        });
+      }
+
+      if (user.token) {
+        localStorage.setItem('token', user.token);
+
+        home(main, user.token);
+      }
+
+      loaderElement.remove();
+    } catch (error) {
+      errorMessage({ parentContainer: formElement, removeOld: true });
+
+      loaderElement.remove();
+    }
   });
 };

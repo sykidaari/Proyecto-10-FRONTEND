@@ -29,7 +29,7 @@ export const fetchApi = async (
 
   const result = await res.json();
 
-  if (!res.ok) {
+  if (res.status >= 500) {
     throw new Error(result?.error?.message || 'Request failed');
   }
 

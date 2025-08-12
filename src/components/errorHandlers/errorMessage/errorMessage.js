@@ -1,7 +1,17 @@
 import './_errorMessage.scss';
-import { create } from '../../utils/elementCreator';
+import { create } from '../../../utils/elementCreator';
+import { removeOldElement } from '../../../utils/removeOldElement';
 
-export const errorMessage = ({ parentContainer, innerText, popUp = false }) => {
+export const errorMessage = ({
+  parentContainer,
+  innerText = 'Something went wrong, please refresh the page or try again later.',
+  popUp = false,
+  removeOld = false
+}) => {
+  if (removeOld) {
+    removeOldElement('.error-div');
+  }
+
   const errorDiv = create('div', {
     className: 'error-div',
     appendTo: parentContainer
@@ -26,4 +36,6 @@ export const errorMessage = ({ parentContainer, innerText, popUp = false }) => {
       errorDiv.remove();
     });
   }
+
+  return errorDiv;
 };

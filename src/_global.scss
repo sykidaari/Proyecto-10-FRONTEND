@@ -30,6 +30,8 @@ $text-color-2: #6a4c93;
 $text-color-3: #5c5c5c;
 $text-color-4: #ffffff;
 
+$error-color: #ffc5c5;
+
 // PRESETS
 
 // white-green
@@ -54,11 +56,16 @@ $text-color-4: #ffffff;
   }
 }
 
+// GRADUAL SHOW
 %fade-in-on-creation-S {
   animation: fadeIn 0.1s ease forwards;
 }
 %fade-in-on-creation-L {
   animation: fadeIn 0.5s ease forwards;
+}
+
+%fade-in-out {
+  animation: fadeIn 0.5s ease forwards, fadeOut 0.5s ease forwards 1.5s;
 }
 @keyframes fadeIn {
   from {
@@ -66,5 +73,13 @@ $text-color-4: #ffffff;
   }
   to {
     opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

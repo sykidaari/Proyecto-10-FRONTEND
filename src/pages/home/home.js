@@ -1,7 +1,10 @@
 import { eventsList } from '../../components/eventsList/eventsList';
 import { filterSection } from '../../components/filterSection/filterSection';
+import { removeOldElement } from '../../utils/removeOldElement';
 
 export const home = async (main) => {
+  removeOldElement('.blur-div');
+
   main.innerHTML = '';
 
   const filters = filterSection(main);

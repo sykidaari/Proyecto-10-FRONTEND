@@ -1,0 +1,159 @@
+@import '../../global';
+
+.blur-div {
+  position: fixed;
+  top: 48px;
+  bottom: 51px;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(3px);
+}
+
+.form-wrapper {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: $spacing-S;
+
+  border: $spacing-XXS solid $theme-color-3;
+  border-radius: $spacing-L;
+  background-color: $theme-color-1;
+}
+
+.form {
+  border: $spacing-XS solid $theme-color-4;
+
+  margin: auto;
+
+  width: fit-content;
+  border-radius: $spacing-L;
+  padding: $spacing-S;
+  padding-top: $spacing-XL;
+  position: relative;
+
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-items: center;
+
+    position: relative;
+
+    font-size: $font-M;
+    text-align: center;
+
+    gap: $spacing-XS;
+
+    background-color: $theme-color-3;
+    padding: $spacing-L;
+    border-radius: $spacing-L;
+    color: $text-color-2;
+
+    legend {
+      text-transform: capitalize;
+
+      background-color: $theme-color-3;
+      font-size: $font-L;
+      font-family: $detail-font;
+      color: $text-color-1;
+      padding: $spacing-S;
+      border-radius: $spacing-M;
+
+      position: absolute;
+      top: -50px;
+
+      display: block;
+      width: fit-content;
+      text-align: center;
+    }
+    .form-group {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-S;
+      width: 100%;
+
+      label {
+        font-weight: 700;
+        background-color: $theme-color-1;
+        border-radius: $spacing-M;
+        padding: $spacing-XXS $spacing-XS;
+
+        border: $spacing-XXS solid $theme-color-5;
+      }
+      input {
+        border-radius: $spacing-M;
+
+        text-align: center;
+        font-size: $font-M;
+        padding: $spacing-XXS;
+        margin-bottom: $spacing-S;
+        color: $text-color-1;
+        background-color: $theme-color-1;
+
+        &:focus {
+          border: $spacing-XXS solid $theme-color-4;
+          outline: none;
+        }
+
+        &[type='file'] {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          width: 210px;
+        }
+      }
+
+      .error-div {
+        position: absolute;
+        top: 31.5px;
+        left: 0;
+        right: 0;
+        width: 100%;
+
+        background-color: $error-color;
+
+        padding: $spacing-XXS $spacing-XS;
+
+        @extend %fade-in-out;
+      }
+    }
+    button {
+      cursor: pointer;
+      font-size: $spacing-L;
+      color: $text-color-2;
+      background-color: $theme-color-1;
+      border-radius: $spacing-XL;
+      width: 30px;
+      height: 30px;
+
+      border: $spacing-XXS solid $theme-color-5;
+
+      &:hover {
+        background-color: $theme-color-2;
+      }
+    }
+  }
+
+  > .error-div {
+    position: absolute;
+    bottom: -$spacing-L;
+    left: 0;
+    right: 0;
+  }
+
+  .loader.circle {
+    width: 30px;
+    height: 30px;
+
+    bottom: 30px;
+    left: 0;
+    right: 0;
+
+    background-color: $theme-color-2;
+
+    border-bottom-color: $text-color-2;
+  }
+}

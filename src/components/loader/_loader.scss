@@ -6,6 +6,7 @@
     border: $spacing-XS solid $theme-color-1;
     border-bottom-color: $theme-color-3;
     border-radius: 100%;
+    position: absolute;
 
     animation: rotation 1s linear infinite;
   }

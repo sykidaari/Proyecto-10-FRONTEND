@@ -1,15 +1,16 @@
-@import '../../global';
+@import '../../../global';
 
 .error-div {
   font-family: $detail-font;
   font-size: $font-SM;
   margin: auto;
   color: $text-color-3;
-  background-color: $theme-color-1;
+  background-color: $error-color;
   border-radius: $spacing-S;
   padding: $spacing-XS;
-  border: $spacing-XXS solid $text-color-3;
+  border: $spacing-XXS solid $theme-color-1;
   width: fit-content;
+  text-align: center;
 
-  @extend %fade-in-on-creation-S;
+  @extend %fade-in-on-creation-L;
 }

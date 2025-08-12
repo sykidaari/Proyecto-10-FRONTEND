@@ -1,4 +1,4 @@
-export const loginFields = {
+const loginFields = {
   userNameOrEmailAddress: {
     id: 'username-or-email-address',
     text: 'Username or Email Address'
@@ -6,7 +6,7 @@ export const loginFields = {
   password: { id: 'password', text: 'Password', inputType: 'password' }
 };
 
-export const fullFields = {
+const fullUserFields = {
   userName: {
     id: 'username',
     text: 'Username',
@@ -30,4 +30,10 @@ export const fullFields = {
     inputType: 'file',
     placeholder: 'file.jpg'
   }
+};
+
+export const fields = {
+  login: loginFields,
+  register: fullUserFields,
+  update: fullUserFields
 };
