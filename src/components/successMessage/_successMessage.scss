@@ -1,0 +1,25 @@
+@import '../../global';
+
+.success {
+  font-family: $detail-font;
+  font-size: $font-SM;
+  margin: auto;
+  color: $text-color-3;
+  background-color: $success-color;
+  border-radius: $spacing-S;
+  padding: $spacing-XS;
+  border: $spacing-XXS solid $theme-color-1;
+  width: fit-content;
+  height: fit-content;
+  text-align: center;
+
+  position: absolute;
+
+  top: -50px;
+  left: 0;
+  right: 0;
+
+  &.temporary {
+    @extend %fade-in-out;
+  }
+}

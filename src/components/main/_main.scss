@@ -1,6 +1,28 @@
 @import '../../global';
 main {
   margin: auto $spacing-S;
+  padding: $spacing-L 0;
 
   position: relative;
+
+  .error-div.profile {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+
+  > .loader.circle {
+    width: 30px;
+    height: 30px;
+
+    left: 0;
+    right: 0;
+    top: 0;
+
+    border-color: $theme-color-3;
+    background-color: $theme-color-1;
+    border-bottom-color: $theme-color-2;
+    box-shadow: 0 0 0 10px $theme-color-1;
+  }
 }

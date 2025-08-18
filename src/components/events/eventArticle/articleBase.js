@@ -1,5 +1,5 @@
-import { categoryIcons, defaultProfilePicture } from '../../data/imgPaths';
-import { create } from '../../utils/elementCreator';
+import { categoryIcons, defaultProfilePicture } from '../../../data/imgPaths';
+import { create } from '../../../utils/elementCreator';
 
 export const articleBase = (event, parentContainer) => {
   const li = create('li', { appendTo: parentContainer });
@@ -75,5 +75,5 @@ export const articleBase = (event, parentContainer) => {
     appendTo: creatorSection
   });
 
-  return { article, titleH };
+  return { article, titleH, creatorSection };
 };

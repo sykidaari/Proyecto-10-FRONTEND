@@ -2,6 +2,7 @@ import { form } from '../../components/form/form';
 import { fetchApi } from '../../utils/apiFetcher';
 import { errorMessage } from '../../components/errorHandlers/errorMessage/errorMessage';
 import { fullUserFormFunctions } from '../../components/fullUserFormFunctions/fullUserFormFunctions';
+import { home } from '../home/home';
 
 export const register = async (main) => {
   const { formElement, inputs } = form({
@@ -21,9 +22,9 @@ export const register = async (main) => {
     const { data, loaderElement } = formFilled;
 
     try {
-      const user = await fetchApi('users/register', { method: 'POST', data });
+      const res = await fetchApi('users/register', { method: 'POST', data });
 
-      if (user.error) {
+      if (res.error) {
         errorMessage({
           parentContainer: formElement,
           innerText: user.error.message,
@@ -31,16 +32,19 @@ export const register = async (main) => {
         });
       }
 
-      if (user.token) {
-        localStorage.setItem('token', user.token);
+      if (res.token) {
+        localStorage.setItem('token', res.token);
+        localStorage.setItem('user-id', res.user._id);
 
-        home(main, user.token);
+        if (res.user.img) {
+          localStorage.setItem('profile-picture', res.user.img);
+        }
+
+        home(main, { identified: 'registered' });
       }
 
       loaderElement.remove();
     } catch (error) {
-      console.log(error.message);
-
       errorMessage({
         parentContainer: formElement,
         removeOld: true

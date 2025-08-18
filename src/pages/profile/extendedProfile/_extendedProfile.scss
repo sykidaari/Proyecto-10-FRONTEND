@@ -1,0 +1,33 @@
+@import '../../../global';
+
+.info-section {
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: $spacing-XL;
+
+  article {
+    width: fit-content;
+    border: $spacing-XS solid $theme-color-3;
+    border-radius: $spacing-L;
+    padding: 0 $spacing-S $spacing-S;
+
+    display: flex;
+    flex-direction: column;
+
+    color: $text-color-1;
+    .profile-picture {
+      width: 90px;
+      height: 90px;
+    }
+    .username,
+    .email-address {
+      font-size: $font-M;
+    }
+  }
+  .edit-button {
+    width: fit-content;
+    @extend %button-base-1;
+    margin-top: $spacing-S;
+    margin-left: -$spacing-XS;
+  }
+}

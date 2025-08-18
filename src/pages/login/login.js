@@ -38,24 +38,30 @@ export const login = async (main) => {
     };
 
     try {
-      const user = await fetchApi('users/login', {
+      const res = await fetchApi('users/login', {
         method: 'POST',
         data,
         json: true
       });
 
-      if (user.error) {
+      if (res.error) {
         errorMessage({
           parentContainer: formElement,
-          innerText: user.error.message,
+          innerText: res.error.message,
           removeOld: true
         });
       }
 
-      if (user.token) {
-        localStorage.setItem('token', user.token);
+      if (res.token) {
+        localStorage.setItem('token', res.token);
 
-        home(main, user.token);
+        localStorage.setItem('user-id', res.user._id);
+
+        if (res.user.img) {
+          localStorage.setItem('profile-picture', res.user.img);
+        }
+
+        home(main, { identified: 'logged in' });
       }
 
       loaderElement.remove();

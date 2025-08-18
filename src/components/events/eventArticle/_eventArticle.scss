@@ -1,4 +1,4 @@
-@import '../../global';
+@import '../../../global';
 
 .event-article {
   height: 320px;
@@ -139,5 +139,11 @@
         color: $text-color-2;
       }
     }
+  }
+
+  .error-div.popup {
+    position: absolute;
+    bottom: -160px;
+    left: -50px;
   }
 }

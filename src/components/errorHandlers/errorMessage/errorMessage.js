@@ -5,15 +5,21 @@ import { removeOldElement } from '../../../utils/removeOldElement';
 export const errorMessage = ({
   parentContainer,
   innerText = 'Something went wrong, please refresh the page or try again later.',
+  additionalClasses,
   popUp = false,
-  removeOld = false
+  removeOld = false,
+  temporary = false
 }) => {
+  const classes = additionalClasses
+    ? `error-div ${additionalClasses}`
+    : 'error-div';
+
   if (removeOld) {
-    removeOldElement('.error-div');
+    removeOldElement(classes);
   }
 
   const errorDiv = create('div', {
-    className: 'error-div',
+    className: classes,
     appendTo: parentContainer
   });
 
@@ -35,6 +41,13 @@ export const errorMessage = ({
     closeButton.addEventListener('click', () => {
       errorDiv.remove();
     });
+  }
+
+  if (temporary) {
+    errorDiv.classList.add('temporary');
+    setTimeout(() => {
+      errorDiv.remove();
+    }, 2000);
   }
 
   return errorDiv;

@@ -10,7 +10,32 @@
   padding: $spacing-XS;
   border: $spacing-XXS solid $theme-color-1;
   width: fit-content;
+  height: fit-content;
   text-align: center;
 
   @extend %fade-in-on-creation-L;
+
+  &.popup {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: $spacing-XXS $spacing-XS;
+    padding-right: $spacing-XXS;
+
+    .close-button {
+      padding: $spacing-XXS;
+      border-radius: 100%;
+      border: $spacing-XXS solid $theme-color-1;
+      color: $text-color-3;
+      font-weight: 700;
+
+      &:hover {
+        background-color: $error-color;
+      }
+    }
+  }
+
+  &.temporary {
+    @extend %fade-in-out;
+  }
 }

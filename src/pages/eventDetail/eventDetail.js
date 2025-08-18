@@ -1,4 +1,4 @@
-import { eventArticle } from '../../components/eventArticle/eventArticle';
+import { eventArticle } from '../../components/events/eventArticle/eventArticle';
 import { fetchApi } from '../../utils/apiFetcher';
 import './_eventDetail.scss';
 

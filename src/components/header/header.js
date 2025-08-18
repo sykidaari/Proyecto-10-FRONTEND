@@ -1,6 +1,7 @@
 import './_header.scss';
-import { routes } from '../../routes';
+
 import { create } from '../../utils/elementCreator';
+import { routes } from '../../data/routes';
 
 export const header = () => {
   const header = create('header', { appendTo: '#app' });
@@ -15,7 +16,7 @@ export const header = () => {
     const li = create('li', { appendTo: ul });
 
     const a = create('a', {
-      href: '#',
+      href: '',
       className: 'navOption',
       id: `${routeName}-link`
     });
@@ -24,7 +25,9 @@ export const header = () => {
       create('h1', { innerText: route.text, appendTo: a });
     else a.innerText = route.text || '';
 
-    if (route.icon) {
+    if (routeName === 'profile') {
+      a.classList.add('invisible');
+
       create('img', {
         src: route.icon,
         alt: routeName,

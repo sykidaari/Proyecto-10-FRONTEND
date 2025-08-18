@@ -1,8 +1,38 @@
-@import '../../global';
+@import '../../../global';
 
 .events-section {
   position: relative;
 
+  .title-wrapper {
+    max-width: 900px;
+    margin: auto;
+    .title-div {
+      padding: $spacing-XS;
+
+      display: flex;
+      align-items: center;
+      gap: $spacing-XS;
+
+      background-color: $theme-color-3;
+      border-radius: $spacing-L;
+      width: fit-content;
+
+      .profile-picture {
+        background-color: $theme-color-1;
+        height: 60px;
+        width: 60px;
+      }
+
+      h2 {
+        font-size: $font-M;
+        font-family: $detail-font;
+        color: $text-color-3;
+        span {
+          font-weight: 700;
+        }
+      }
+    }
+  }
   ul {
     max-width: 900px;
     min-height: 365px;
@@ -18,6 +48,8 @@
     background-color: $theme-color-2;
     border: $spacing-XXS solid $theme-color-2;
 
+    position: relative;
+
     &::-webkit-scrollbar {
       background-color: transparent;
     }
@@ -27,6 +59,13 @@
       height: $spacing-S;
       background-color: $theme-color-1;
       border-radius: $spacing-L;
+    }
+
+    .success {
+      background-color: $theme-color-3;
+
+      top: 0;
+      bottom: 0;
     }
   }
   .error-div {
