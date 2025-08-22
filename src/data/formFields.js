@@ -35,5 +35,5 @@ const fullUserFields = {
 export const fields = {
   login: loginFields,
   register: fullUserFields,
-  update: fullUserFields
+  edit: fullUserFields
 };

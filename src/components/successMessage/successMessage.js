@@ -4,7 +4,8 @@ import './_successMessage.scss';
 export const successMessage = ({
   parentContainer,
   innerText,
-  temporary = true
+  temporary = true,
+  lowerView = false
 }) => {
   const successDiv = create('div', {
     className: 'success',
@@ -21,5 +22,9 @@ export const successMessage = ({
     setTimeout(() => {
       successDiv.remove();
     }, 2000);
+  }
+
+  if (lowerView) {
+    successDiv.classList.add('lowerview');
   }
 };

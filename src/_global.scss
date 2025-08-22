@@ -47,6 +47,34 @@ $success-color: #c5ffc7;
   }
 }
 
+%small-user-base {
+  display: flex;
+  align-items: center;
+  border-radius: $spacing-L;
+  padding-right: $spacing-XS;
+  width: fit-content;
+  cursor: pointer;
+
+  .profile-picture {
+    width: 30px;
+    height: 30px;
+    background-color: $theme-color-1;
+    margin: 3px;
+    margin-right: 0;
+
+    border: 2px solid $theme-color-1;
+    z-index: 1;
+  }
+  .username {
+    background-color: $theme-color-1;
+    border-top-right-radius: $spacing-L;
+    border-bottom-right-radius: $spacing-L;
+    padding: $spacing-XS;
+    margin-left: -$spacing-XS;
+    color: $text-color-2;
+  }
+}
+
 %scale-up-small {
   & {
     transition: transform 0.2s ease;

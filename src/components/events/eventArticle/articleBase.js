@@ -2,11 +2,17 @@ import { categoryIcons, defaultProfilePicture } from '../../../data/imgPaths';
 import { create } from '../../../utils/elementCreator';
 
 export const articleBase = (event, parentContainer) => {
-  const li = create('li', { appendTo: parentContainer });
+  const articleParent =
+    parentContainer.tagName.toLowerCase() === 'ul'
+      ? create('li', { appendTo: parentContainer })
+      : create('div', {
+          className: 'event-wrapper',
+          appendTo: parentContainer
+        });
 
   const article = create('article', {
     className: 'event-article',
-    appendTo: li
+    appendTo: articleParent
   });
 
   const imgWrapper = create('div', {
@@ -68,6 +74,7 @@ export const articleBase = (event, parentContainer) => {
     alt: `${event.creator.userName}'s profile-picture`,
     appendTo: creatorSection
   });
+
   const creatorUserName = create('a', {
     innerText: event.creator.userName,
     className: 'username',
@@ -75,5 +82,5 @@ export const articleBase = (event, parentContainer) => {
     appendTo: creatorSection
   });
 
-  return { article, titleH, creatorSection };
+  return { articleParent, article, titleH, creatorSection };
 };

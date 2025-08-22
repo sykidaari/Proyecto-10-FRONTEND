@@ -1,9 +1,13 @@
+import { authError } from '../../components/errorHandlers/authError/authError';
 import { errorMessage } from '../../components/errorHandlers/errorMessage/errorMessage';
 import { eventsList } from '../../components/events/eventsList/eventsList';
 import { loader } from '../../components/loader/loader';
 import { defaultProfilePicture } from '../../data/imgPaths';
 import { fetchApi } from '../../utils/apiFetcher';
+import { removeOldElement } from '../../utils/removeOldElement';
 import { extendedProfile } from './extendedProfile/extendedProfile';
+
+// NEED TO FIX
 
 export const profile = async (
   main,
@@ -14,6 +18,8 @@ export const profile = async (
     errorParentContainer
   } = {}
 ) => {
+  removeOldElement('.blur-div');
+
   const loaderElement = loader(main);
 
   const token = localStorage.getItem('token');
@@ -24,9 +30,9 @@ export const profile = async (
     if (typeof res === 'string' && res.includes('unauthorized')) {
       loaderElement.remove();
 
-      errorMessage({
+      authError({
         parentContainer: errorParentContainer,
-        innerText: 'Please login for access!',
+        additionalClasses: 'profile',
         popUp: true,
         removeOld: true
       });
@@ -35,13 +41,16 @@ export const profile = async (
 
     main.innerHTML = '';
 
+    const currentUser = id === localStorage.getItem('user-id') ? true : false;
+
     const eventsListUser = {
-      userName: userName ? `${userName}'s` : 'Your',
-      profilePicture: userName ? profilePicture : null
+      userName: currentUser ? 'Your' : `${userName}'s`,
+      profilePicture: currentUser ? null : profilePicture,
+      id
     };
 
-    if (!userName) {
-      extendedProfile(main, res);
+    if (currentUser) {
+      extendedProfile(main, res, token);
     }
 
     await eventsList(main, {

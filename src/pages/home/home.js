@@ -14,21 +14,29 @@ export const home = async (main, { identified } = {}) => {
   const token = localStorage.getItem('token');
   const profilePicture = localStorage.getItem('profile-picture');
 
-  if (token) {
-    [
-      ['#login-link', 'add'],
-      ['#register-link', 'add'],
-      ['#profile-link', 'remove']
-    ].forEach(([selector, action]) =>
-      document.querySelector(selector).classList[action]('invisible')
-    );
-
-    if (profilePicture) {
-      const userProfilePicture = document.querySelector(
-        '#profile-link .profile-picture'
-      );
-      userProfilePicture.src = profilePicture;
+  const headerAnchorsVisibilityOptions = {
+    loggedIn: {
+      '#login-link': 'add',
+      '#register-link': 'add',
+      '#profile-link': 'remove'
+    },
+    loggedOut: {
+      '#login-link': 'remove',
+      '#register-link': 'remove',
+      '#profile-link': 'add'
     }
+  };
+
+  const state = token ? 'loggedIn' : 'loggedOut';
+  const option = headerAnchorsVisibilityOptions[state];
+
+  for (const selector in option) {
+    document.querySelector(selector).classList[option[selector]]('invisible');
+  }
+
+  if (token && profilePicture) {
+    document.querySelector('#profile-link .profile-picture').src =
+      profilePicture;
   }
 
   if (identified) {

@@ -1,8 +1,9 @@
 import { form } from '../../components/form/form';
 import { fetchApi } from '../../utils/apiFetcher';
 import { errorMessage } from '../../components/errorHandlers/errorMessage/errorMessage';
-import { fullUserFormFunctions } from '../../components/fullUserFormFunctions/fullUserFormFunctions';
+import { fullUserFormFunctions } from '../../components/formFunctions/fullUserFormFunctions';
 import { home } from '../home/home';
+import { removeOldElement } from '../../utils/removeOldElement';
 
 export const register = async (main) => {
   const { formElement, inputs } = form({
@@ -14,6 +15,8 @@ export const register = async (main) => {
 
   formElement.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    removeOldElement('.error-div');
 
     const formFilled = fullUserFormFunctions(inputs, formElement);
 
@@ -27,8 +30,7 @@ export const register = async (main) => {
       if (res.error) {
         errorMessage({
           parentContainer: formElement,
-          innerText: user.error.message,
-          removeOld: true
+          innerText: res.error.message
         });
       }
 
@@ -46,8 +48,7 @@ export const register = async (main) => {
       loaderElement.remove();
     } catch (error) {
       errorMessage({
-        parentContainer: formElement,
-        removeOld: true
+        parentContainer: formElement
       });
 
       loaderElement.remove();

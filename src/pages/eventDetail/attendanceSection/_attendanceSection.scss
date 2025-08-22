@@ -1,0 +1,117 @@
+@import '../../../global';
+
+.attendance {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-S;
+  align-items: center;
+  max-width: 600px;
+
+  padding: $spacing-S;
+  border-radius: $spacing-S;
+  border: $spacing-XS solid $theme-color-3;
+
+  max-width: 100%;
+
+  h4 {
+    font-size: $font-SM;
+    font-weight: 700;
+    color: $text-color-3;
+  }
+
+  &.blur :not(.error-div, .error-text, h4) {
+    filter: blur(2px);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+  .error-div {
+    backdrop-filter: blur(5px);
+    position: absolute;
+    white-space: nowrap;
+    top: 0;
+    bottom: 0;
+
+    z-index: 1;
+
+    &.failed {
+      top: calc(100% - 50px);
+    }
+  }
+
+  .empty-message {
+    padding: $spacing-XS;
+    border-radius: $spacing-S;
+    border: $spacing-XXS solid $theme-color-2;
+    margin-bottom: $spacing-S;
+    font-size: $font-SM;
+    color: $text-color-3;
+  }
+
+  ul {
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+
+    gap: $spacing-S;
+
+    padding: $spacing-XS;
+    border-radius: $spacing-S;
+    border: $spacing-XXS solid $theme-color-2;
+    margin-bottom: $spacing-S;
+
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      height: $spacing-XS;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $theme-color-3;
+      border-radius: $spacing-L;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      font-size: $font-S;
+      background-color: $theme-color-3;
+
+      @extend %small-user-base;
+      @extend %scale-up-small;
+
+      &.current-user {
+        filter: grayscale(0.5);
+        pointer-events: none;
+
+        .username {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .attend-button {
+    color: $text-color-2;
+    font-weight: 700;
+    height: 30px;
+    @extend %button-base-1;
+
+    &.attending {
+      background-color: $success-color;
+      pointer-events: none;
+    }
+  }
+
+  .loader.circle {
+    width: 30px;
+    height: 30px;
+    background-color: $theme-color-4;
+    box-shadow: 0 0 0 $spacing-XS $theme-color-4;
+    border-bottom-color: $theme-color-2;
+
+    bottom: $spacing-S;
+  }
+}

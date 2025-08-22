@@ -10,16 +10,20 @@ export const errorMessage = ({
   removeOld = false,
   temporary = false
 }) => {
-  const classes = additionalClasses
+  const className = additionalClasses
     ? `error-div ${additionalClasses}`
     : 'error-div';
 
+  const selector = additionalClasses
+    ? `.error-div.${additionalClasses.split(' ').join('.')}`
+    : '.error-div';
+
   if (removeOld) {
-    removeOldElement(classes);
+    removeOldElement(selector);
   }
 
   const errorDiv = create('div', {
-    className: classes,
+    className,
     appendTo: parentContainer
   });
 

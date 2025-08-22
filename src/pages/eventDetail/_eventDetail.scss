@@ -1,63 +1,68 @@
 @import '../../global';
 
-.event-article.detail {
-  flex-direction: row;
+.event-wrapper {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  .event-article.detail {
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+    max-width: 600px;
 
-  max-width: 600px;
+    margin: $spacing-XL auto;
 
-  margin: $spacing-XL auto;
+    font-size: $font-SM;
+    gap: $spacing-M;
 
-  font-size: $font-SM;
-  gap: $spacing-M;
+    height: fit-content;
 
-  height: fit-content;
-
-  .img-wrapper {
-    .img {
-      height: 225px;
-      width: 300px;
-    }
-  }
-
-  .content-wrapper {
-    padding: $spacing-M $spacing-XS;
-    a {
-      h3 {
-        font-size: $font-M;
-
-        cursor: default;
-        transition: none;
-
-        white-space: initial;
-        overflow: initial;
-        text-overflow: initial;
-
-        width: auto;
-
-        &:hover {
-          transform: none;
-        }
+    .img-wrapper {
+      .img {
+        height: 225px;
+        width: 300px;
       }
     }
 
-    .category {
-      top: 20%;
+    .content-wrapper {
+      padding: $spacing-M $spacing-XS;
+      a {
+        h3 {
+          font-size: $font-M;
+
+          cursor: default;
+          transition: none;
+
+          white-space: initial;
+          overflow: initial;
+          text-overflow: initial;
+
+          width: auto;
+
+          &:hover {
+            transform: none;
+          }
+        }
+      }
+
+      .category {
+        top: calc(50% - 110px);
+      }
+
+      .description {
+        display: block;
+      }
+
+      .creator-section .username {
+        margin-left: -7px;
+        padding-left: 7px;
+      }
     }
 
-    .description {
-      display: block;
+    .error-div.popup {
+      position: absolute;
+      bottom: 3px;
+      left: 330px;
     }
-
-    .creator-section .username {
-      margin-left: -7px;
-      padding-left: 7px;
-    }
-  }
-
-  .error-div.popup {
-    position: absolute;
-    bottom: 3px;
-    left: 330px;
   }
 }

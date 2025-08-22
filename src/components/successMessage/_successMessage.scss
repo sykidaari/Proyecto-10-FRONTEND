@@ -22,4 +22,8 @@
   &.temporary {
     @extend %fade-in-out;
   }
+
+  &.lowerview {
+    top: 50px;
+  }
 }

@@ -27,9 +27,14 @@ export const eventsList = async (
       empty = true;
     }
 
+    if (events.length > 0 && events.length < 4) {
+      section.classList.add('shrink');
+    }
+
     events.forEach((event) => {
       eventArticle(event, main, {
-        parentContainer: sectionUl
+        parentContainer: sectionUl,
+        user
       });
     });
 

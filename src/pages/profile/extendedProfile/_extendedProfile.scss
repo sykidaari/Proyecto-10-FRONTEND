@@ -1,9 +1,14 @@
 @import '../../../global';
 
-.info-section {
+.user-profile-section {
   max-width: 900px;
   margin: auto;
   margin-bottom: $spacing-XL;
+
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: $spacing-L;
 
   article {
     width: fit-content;
@@ -18,6 +23,8 @@
     .profile-picture {
       width: 90px;
       height: 90px;
+      border: $theme-color-4 solid $spacing-XXS;
+      margin-top: $spacing-XS;
     }
     .username,
     .email-address {
@@ -29,5 +36,14 @@
     @extend %button-base-1;
     margin-top: $spacing-S;
     margin-left: -$spacing-XS;
+    font-size: $font-M;
+    color: $text-color-1;
+  }
+
+  .log-out-button {
+    font-size: $font-L;
+
+    color: $text-color-3;
+    @extend %button-base-1;
   }
 }

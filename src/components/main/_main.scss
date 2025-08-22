@@ -5,7 +5,7 @@ main {
 
   position: relative;
 
-  .error-div.profile {
+  > .error-div.profile {
     position: absolute;
     left: 0;
     right: 0;
@@ -18,7 +18,7 @@ main {
 
     left: 0;
     right: 0;
-    top: 0;
+    top: 40px;
 
     border-color: $theme-color-3;
     background-color: $theme-color-1;

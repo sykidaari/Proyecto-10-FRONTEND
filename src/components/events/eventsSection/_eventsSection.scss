@@ -3,6 +3,11 @@
 .events-section {
   position: relative;
 
+  &.shrink {
+    max-width: fit-content;
+    margin: auto;
+  }
+
   .title-wrapper {
     max-width: 900px;
     margin: auto;

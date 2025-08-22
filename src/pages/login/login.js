@@ -47,8 +47,7 @@ export const login = async (main) => {
       if (res.error) {
         errorMessage({
           parentContainer: formElement,
-          innerText: res.error.message,
-          removeOld: true
+          innerText: res.error.message
         });
       }
 
@@ -66,7 +65,7 @@ export const login = async (main) => {
 
       loaderElement.remove();
     } catch (error) {
-      errorMessage({ parentContainer: formElement, removeOld: true });
+      errorMessage({ parentContainer: formElement });
 
       loaderElement.remove();
     }

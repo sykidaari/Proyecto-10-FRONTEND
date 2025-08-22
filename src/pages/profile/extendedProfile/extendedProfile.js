@@ -1,22 +1,24 @@
 import { form } from '../../../components/form/form';
 import { defaultProfilePicture } from '../../../data/imgPaths';
 import { create } from '../../../utils/elementCreator';
+import { home } from '../../home/home';
 import { editProfile } from '../editProfile/editProfile';
 import './_extendedProfile.scss';
 
-export const extendedProfile = (parentContainer, user) => {
+export const extendedProfile = (main, user, token) => {
   const {
     img = defaultProfilePicture,
     userName: name,
-    emailAddress: email
+    emailAddress: email,
+    _id: id
   } = user;
 
-  const infoSection = create('section', {
-    className: 'info-section',
-    appendTo: parentContainer
+  const userProfileSection = create('section', {
+    className: 'user-profile-section',
+    appendTo: main
   });
 
-  const infoArticle = create('article', { appendTo: infoSection });
+  const infoArticle = create('article', { appendTo: userProfileSection });
 
   const profilePicture = create('img', {
     className: 'profile-picture',
@@ -44,6 +46,17 @@ export const extendedProfile = (parentContainer, user) => {
   });
 
   editButton.addEventListener('click', () => {
-    editProfile(parentContainer);
+    editProfile(main, id, token);
+  });
+
+  const logOutButton = create('button', {
+    innerText: 'Log out',
+    className: 'log-out-button',
+    appendTo: userProfileSection
+  });
+
+  logOutButton.addEventListener('click', () => {
+    localStorage.clear();
+    home(main);
   });
 };

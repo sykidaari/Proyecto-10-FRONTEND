@@ -1,4 +1,5 @@
 import { emptyInputError } from '../errorHandlers/emptyInputError/emptyInputError';
+import { errorMessage } from '../errorHandlers/errorMessage/errorMessage';
 import { fileFormatError } from '../errorHandlers/fileFormatError/fileFormatError';
 import { inputValueLengthError } from '../errorHandlers/inputValueLengthError/inputValueLengthError';
 import { loader } from '../loader/loader';
@@ -44,11 +45,8 @@ export const fullUserFormFunctions = (inputs, formElement) => {
 
   const file = img.files[0];
   if (file) {
+    if (fileFormatError(file, { parentContainer: formElement })) return;
     data.append('img', file);
-
-    if (fileFormatError(file, { parentContainer: formElement })) {
-      return;
-    }
   }
 
   const loaderElement = loader(formElement);
