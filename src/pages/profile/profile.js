@@ -49,7 +49,7 @@ export const profile = async (
 
     let userProfileSection;
     if (currentUser) {
-      userProfileSection = extendedProfile(main, res, token);
+      extendedProfile(main, res, token);
     }
 
     await eventsList(main, {
@@ -57,9 +57,6 @@ export const profile = async (
       token,
       user: eventsListUser
     });
-
-    if (document.querySelector('.shrink') && userProfileSection)
-      userProfileSection.classList.add('shrink');
 
     loaderElement.remove();
   } catch (error) {
