@@ -64,7 +64,6 @@ export const editProfile = (main, id, token) => {
 
       loaderElement.remove();
     } catch (error) {
-      console.log(error);
       errorMessage({ parentContainer: formElement });
 
       loaderElement.remove();
