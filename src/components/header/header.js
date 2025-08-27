@@ -3,8 +3,8 @@ import './_header.scss';
 import { create } from '../../utils/elementCreator';
 import { routes } from '../../data/routes';
 
-export const header = () => {
-  const header = create('header', { appendTo: '#app' });
+export const header = (app) => {
+  const header = create('header', { appendTo: app });
   const navBar = create('nav', { appendTo: header });
   const ul = create('ul', { appendTo: navBar });
 

@@ -7,8 +7,6 @@ import { fetchApi } from '../../utils/apiFetcher';
 import { removeOldElement } from '../../utils/removeOldElement';
 import { extendedProfile } from './extendedProfile/extendedProfile';
 
-// NEED TO FIX
-
 export const profile = async (
   main,
   {
@@ -49,8 +47,9 @@ export const profile = async (
       id
     };
 
+    let userProfileSection;
     if (currentUser) {
-      extendedProfile(main, res, token);
+      userProfileSection = extendedProfile(main, res, token);
     }
 
     await eventsList(main, {
@@ -59,8 +58,12 @@ export const profile = async (
       user: eventsListUser
     });
 
+    if (document.querySelector('.shrink') && userProfileSection)
+      userProfileSection.classList.add('shrink');
+
     loaderElement.remove();
   } catch (error) {
+    console.log(error);
     loaderElement.remove();
 
     errorMessage({

@@ -1,3 +1,4 @@
+import { deleteDiv } from '../../../components/deleteButton/deleteDiv';
 import { errorMessage } from '../../../components/errorHandlers/errorMessage/errorMessage';
 import { form } from '../../../components/form/form';
 import { fullUserFormFunctions } from '../../../components/formFunctions/fullUserFormFunctions';
@@ -13,7 +14,7 @@ export const editProfile = (main, id, token) => {
   const { formElement, inputs } = form({
     parentContainer: main,
     type: 'user',
-    option: 'edit',
+    option: 'edit_profile',
     blurParent: true
   });
 
@@ -23,7 +24,17 @@ export const editProfile = (main, id, token) => {
     appendTo: formElement
   });
 
-  console.log(id);
+  const deleteMessage = create('p', {
+    innerText: 'Delete profile:',
+    className: 'delete-message',
+    appendTo: formElement
+  });
+
+  deleteDiv(main, {
+    parentContainer: formElement,
+    target: 'profile',
+    fetchPath: `users/${id}`
+  });
 
   formElement.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -59,7 +70,7 @@ export const editProfile = (main, id, token) => {
 
       successMessage({
         parentContainer: main,
-        innerText: 'Your profile has been updated correctly',
+        innerText: "You've updated your profile correctly",
         lowerView: true
       });
 

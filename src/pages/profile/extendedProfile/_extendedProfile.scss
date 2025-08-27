@@ -1,6 +1,10 @@
 @import '../../../global';
 
 .user-profile-section {
+  &.shrink {
+    max-width: fit-content;
+  }
+
   max-width: 900px;
   margin: auto;
   margin-bottom: $spacing-XL;

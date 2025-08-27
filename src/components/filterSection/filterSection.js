@@ -1,16 +1,17 @@
 import { categoryIcons } from '../../data/imgPaths';
+import { fetchApi } from '../../utils/apiFetcher';
 import { create } from '../../utils/elementCreator';
+import { eventsList } from '../events/eventsList/eventsList';
 import './_filterSection.scss';
 
-export const filterSection = (parentTag) => {
+export const filterSection = (main) => {
   const filterSection = create('section', {
     className: 'filter-section',
-    appendTo: parentTag
+    appendTo: main
   });
 
   const ul = create('ul', { appendTo: filterSection });
 
-  // CATEGORY
   const categoryLi = create('li', { appendTo: ul });
 
   const categoryLabel = create('label', {
@@ -37,8 +38,6 @@ export const filterSection = (parentTag) => {
     });
   }
 
-  // ORDER
-
   const orderLi = create('li', { appendTo: ul });
 
   const orderLabel = create('label', {
@@ -46,6 +45,7 @@ export const filterSection = (parentTag) => {
     htmlFor: 'order-select',
     appendTo: orderLi
   });
+
   const orderSelect = create('select', {
     id: 'order-select',
     appendTo: orderLi
@@ -61,6 +61,23 @@ export const filterSection = (parentTag) => {
     value: 'desc',
     innerText: 'Descending',
     appendTo: orderSelect
+  });
+
+  const selects = [categorySelect, orderSelect];
+  let reqQuery = {};
+
+  selects.forEach((select) => {
+    select.addEventListener('change', async (e) => {
+      const selectName = select.id.split('-')[0];
+
+      reqQuery[selectName] = e.target.value;
+
+      const reqQueryString = `?${new URLSearchParams(reqQuery).toString()}`;
+
+      console.log(reqQueryString);
+
+      await eventsList(main, { fetchPath: `events${reqQueryString}` });
+    });
   });
 
   return filterSection;

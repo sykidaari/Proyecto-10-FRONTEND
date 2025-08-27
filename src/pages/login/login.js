@@ -60,7 +60,7 @@ export const login = async (main) => {
           localStorage.setItem('profile-picture', res.user.img);
         }
 
-        home(main, { identified: 'logged in' });
+        home(main, { previous: 'logged in' });
       }
 
       loaderElement.remove();

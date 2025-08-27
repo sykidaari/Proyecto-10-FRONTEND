@@ -1,0 +1,85 @@
+@import '../../global';
+
+.event-form {
+  margin-top: $spacing-L;
+  max-width: 500px;
+  width: 100%;
+
+  // HIDE CREATION BUTTON
+  &::before {
+    content: '';
+    position: fixed;
+    background-color: $theme-color-1;
+    left: calc(50% + 450px - 55px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+  }
+
+  fieldset {
+    width: 100%;
+
+    align-items: flex-start;
+    text-align: initial;
+
+    .form-group {
+      label {
+        width: fit-content;
+      }
+
+      input,
+      textarea,
+      select {
+        text-align: initial;
+
+        &:not(#image) {
+          padding-left: $spacing-XS;
+        }
+
+        &#description {
+          height: 100px;
+        }
+        &#category,
+        #category option {
+          text-transform: capitalize;
+        }
+      }
+
+      &:nth-of-type(3) {
+        margin-top: 40px;
+      }
+
+      &:nth-of-type(5) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .location {
+    position: absolute;
+    left: 30px;
+    width: fit-content;
+    top: 190px;
+
+    text-align: center;
+    color: $text-color-2;
+    font-size: $font-M;
+    text-transform: capitalize;
+
+    background-color: $theme-color-1;
+    border-radius: $spacing-M;
+    padding: $spacing-XXS $spacing-XS;
+
+    border: $spacing-XXS solid $theme-color-5;
+  }
+
+  .loader.circle {
+    left: calc(100% - 90px);
+  }
+
+  button {
+    align-self: end;
+  }
+}

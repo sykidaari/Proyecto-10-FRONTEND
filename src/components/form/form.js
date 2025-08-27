@@ -2,9 +2,12 @@ import { fields } from '../../data/formFields';
 import { create } from '../../utils/elementCreator';
 import { removeOldElement } from '../../utils/removeOldElement';
 import './_form.scss';
+import './_eventForm.scss';
 
 export const form = ({ parentContainer, option, type, blurParent = false }) => {
   removeOldElement(['.blur-div', '.form-wrapper', '.user-form']);
+
+  const spacedOption = option.replace('_', ' ');
 
   let formParent = parentContainer;
 
@@ -28,7 +31,10 @@ export const form = ({ parentContainer, option, type, blurParent = false }) => {
   });
 
   const fieldSet = create('fieldset', { appendTo: formElement });
-  const legend = create('legend', { innerText: option, appendTo: fieldSet });
+  const legend = create('legend', {
+    innerText: spacedOption,
+    appendTo: fieldSet
+  });
 
   const chosenFields = fields[option];
 
@@ -36,7 +42,9 @@ export const form = ({ parentContainer, option, type, blurParent = false }) => {
 
   for (const key in chosenFields) {
     const value = chosenFields[key];
-    const { id, text, inputType, placeholder } = value;
+    const { id, inputType, placeholder, list, multiLine } = value;
+
+    const text = id.replace('-', ' ');
 
     const formGroup = create('div', {
       className: 'form-group',
@@ -49,14 +57,42 @@ export const form = ({ parentContainer, option, type, blurParent = false }) => {
       appendTo: formGroup
     });
 
-    const input = create('input', {
-      type: inputType,
-      id,
-      placeholder,
-      appendTo: formGroup
-    });
+    if (value.list) {
+      const select = create('select', { id, appendTo: formGroup });
 
-    inputs[key] = input;
+      const defaultOption = create('option', {
+        value: '',
+        innerText: `Choose a ${id}`,
+        appendTo: select
+      });
+
+      list.forEach((element) => {
+        const option = create('option', {
+          value: element,
+          innerText: element,
+          appendTo: select
+        });
+      });
+      inputs[key] = select;
+    } else if (value.multiLine) {
+      const textarea = create('textarea', {
+        type: inputType,
+        id,
+        placeholder,
+        appendTo: formGroup
+      });
+
+      inputs[key] = textarea;
+    } else {
+      const input = create('input', {
+        type: inputType,
+        id,
+        placeholder,
+        appendTo: formGroup
+      });
+
+      inputs[key] = input;
+    }
   }
 
   const submitButton = create('button', {

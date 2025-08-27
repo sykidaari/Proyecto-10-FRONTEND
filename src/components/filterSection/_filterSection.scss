@@ -4,6 +4,10 @@
   margin: $spacing-XS auto;
   max-width: 900px;
 
+  display: flex;
+  align-items: center;
+  gap: $spacing-XS;
+
   &.error {
     opacity: 0.5;
     pointer-events: none;
@@ -50,5 +54,12 @@
         text-transform: capitalize;
       }
     }
+  }
+  .filter-button {
+    color: $text-color-3;
+    font-size: $font-SM;
+    @extend %button-base-1;
+
+    height: fit-content;
   }
 }

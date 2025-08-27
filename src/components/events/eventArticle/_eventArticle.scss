@@ -122,6 +122,14 @@
     }
   }
 
+  .edit-button {
+    position: absolute;
+    bottom: $spacing-M;
+    right: $spacing-S;
+    color: $text-color-1;
+    @extend %button-base-1;
+  }
+
   .error-div.popup {
     position: absolute;
     bottom: -160px;

@@ -1,4 +1,5 @@
 import { fetchApi } from '../../../utils/apiFetcher';
+import { removeOldElement } from '../../../utils/removeOldElement';
 import { errorMessage } from '../../errorHandlers/errorMessage/errorMessage';
 import { loader } from '../../loader/loader';
 import { successMessage } from '../../successMessage/successMessage';
@@ -9,6 +10,8 @@ export const eventsList = async (
   main,
   { parentContainer = main, fetchPath = 'events', token, user } = {}
 ) => {
+  removeOldElement('.events-section');
+
   const { section, ul: sectionUl } = eventsSection({ parentContainer, user });
 
   const loaderElement = loader(section);

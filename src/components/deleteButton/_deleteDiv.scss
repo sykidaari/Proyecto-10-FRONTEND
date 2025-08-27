@@ -1,0 +1,55 @@
+@import '../../global';
+
+.delete-message {
+  position: absolute;
+  font-size: $font-M;
+  font-weight: 700;
+  max-width: 80%;
+  color: $text-color-3;
+  background-color: $theme-color-2;
+  border-radius: $spacing-L;
+  padding: $spacing-XS;
+  padding-left: $spacing-S;
+  bottom: -40px;
+  padding-right: $spacing-S;
+}
+.delete-div {
+  font-size: $font-SM;
+  position: absolute;
+  bottom: -40px;
+  left: 130px;
+  width: 50%;
+
+  .delete-button {
+    color: $text-color-1;
+    @extend %button-base-1;
+  }
+
+  .confirmation-div {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    color: $text-color-3;
+    background-color: $theme-color-1;
+    padding: $spacing-XS;
+    border-radius: $spacing-S;
+    border: $spacing-XXS solid $theme-color-2;
+
+    p {
+      margin-bottom: $spacing-XS;
+    }
+
+    .yes,
+    .no {
+      @extend %button-base-1;
+    }
+
+    .yes {
+      background-color: $error-color;
+      margin-right: $spacing-XS;
+    }
+    .no {
+      background-color: $success-color;
+    }
+  }
+}

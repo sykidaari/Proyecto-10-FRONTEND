@@ -1,0 +1,15 @@
+@import '../../global';
+
+.event-form.edit_event {
+  margin-bottom: 50px;
+
+  .edit-message {
+    max-width: 80%;
+    padding: $spacing-XS;
+    padding-left: $spacing-S;
+    left: 30px;
+  }
+  fieldset {
+    padding-top: 60px;
+  }
+}

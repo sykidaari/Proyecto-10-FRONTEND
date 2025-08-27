@@ -4,7 +4,7 @@ import { successMessage } from '../../components/successMessage/successMessage';
 
 import { removeOldElement } from '../../utils/removeOldElement';
 
-export const home = async (main, { identified } = {}) => {
+export const home = async (main, { previous } = {}) => {
   removeOldElement('.blur-div');
 
   main.innerHTML = '';
@@ -39,10 +39,10 @@ export const home = async (main, { identified } = {}) => {
       profilePicture;
   }
 
-  if (identified) {
+  if (previous) {
     successMessage({
       parentContainer: main,
-      innerText: `You've ${identified} correctly!`
+      innerText: `You've ${previous} correctly!`
     });
   }
 

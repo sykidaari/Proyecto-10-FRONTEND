@@ -1,23 +1,21 @@
 @import '../../../global';
 
-.user-form.edit {
+.user-form.edit_profile {
+  margin-bottom: 50px;
+
   .edit-message {
-    position: absolute;
-    font-size: $font-M;
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
-
-    top: 35px;
-    font-weight: 700;
     width: 200px;
-    color: $text-color-3;
-    background-color: $theme-color-2;
-    border-radius: $spacing-L;
     padding: $spacing-XXS;
   }
 
   fieldset {
     padding-top: 60px;
+  }
+
+  .delete-div {
+    left: 135px;
   }
 }

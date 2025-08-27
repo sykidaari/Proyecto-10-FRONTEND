@@ -59,4 +59,6 @@ export const extendedProfile = (main, user, token) => {
     localStorage.clear();
     home(main);
   });
+
+  return userProfileSection;
 };

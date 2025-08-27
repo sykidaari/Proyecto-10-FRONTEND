@@ -42,7 +42,7 @@ export const register = async (main) => {
           localStorage.setItem('profile-picture', res.user.img);
         }
 
-        home(main, { identified: 'registered' });
+        home(main, { previous: 'registered' });
       }
 
       loaderElement.remove();
