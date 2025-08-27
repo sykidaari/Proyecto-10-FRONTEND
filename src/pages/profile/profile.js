@@ -47,7 +47,6 @@ export const profile = async (
       id
     };
 
-    let userProfileSection;
     if (currentUser) {
       extendedProfile(main, res, token);
     }
@@ -60,7 +59,6 @@ export const profile = async (
 
     loaderElement.remove();
   } catch (error) {
-    console.log(error);
     loaderElement.remove();
 
     errorMessage({

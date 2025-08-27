@@ -17,18 +17,6 @@ export const editEvent = (main, id) => {
     option: 'edit_event'
   });
 
-  const editMessage = create('p', {
-    innerText: 'Please fill only the fields you wish to update!',
-    className: 'edit-message',
-    appendTo: formElement
-  });
-
-  const deleteMessage = create('p', {
-    innerText: 'Delete event:',
-    className: 'delete-message',
-    appendTo: formElement
-  });
-
   deleteDiv(main, {
     parentContainer: formElement,
     target: 'event',

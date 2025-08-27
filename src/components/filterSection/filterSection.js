@@ -75,8 +75,6 @@ export const filterSection = (main) => {
 
       const reqQueryString = `?${new URLSearchParams(reqQuery).toString()}`;
 
-      console.log(reqQueryString);
-
       await eventsList(main, { fetchPath: `events${reqQueryString}` });
     });
   });

@@ -18,18 +18,6 @@ export const editProfile = (main, id, token) => {
     blurParent: true
   });
 
-  const editMessage = create('p', {
-    innerText: 'Please fill only the fields you wish to update!',
-    className: 'edit-message',
-    appendTo: formElement
-  });
-
-  const deleteMessage = create('p', {
-    innerText: 'Delete profile:',
-    className: 'delete-message',
-    appendTo: formElement
-  });
-
   deleteDiv(main, {
     parentContainer: formElement,
     target: 'profile',

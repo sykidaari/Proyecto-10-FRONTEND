@@ -63,7 +63,7 @@ export const form = ({ parentContainer, option, type, blurParent = false }) => {
       appendTo: formGroup
     });
 
-    if (value.list) {
+    if (list) {
       const select = create('select', { id, appendTo: formGroup });
 
       const defaultOption = create('option', {
@@ -80,7 +80,7 @@ export const form = ({ parentContainer, option, type, blurParent = false }) => {
         });
       });
       inputs[key] = select;
-    } else if (value.multiLine) {
+    } else if (multiLine) {
       const textarea = create('textarea', {
         type: inputType,
         id,
@@ -106,6 +106,22 @@ export const form = ({ parentContainer, option, type, blurParent = false }) => {
     innerText: '➜',
     appendTo: fieldSet
   });
+
+  if (option.includes('edit')) {
+    const editMessage = create('p', {
+      innerText: 'Please fill only the fields you wish to update!',
+      className: 'edit-message',
+      appendTo: formElement
+    });
+
+    const deleteTarget = option.includes('event') ? 'event' : 'profile';
+
+    const deleteMessage = create('p', {
+      innerText: `Delete ${deleteTarget}`,
+      className: 'delete-message',
+      appendTo: formElement
+    });
+  }
 
   return { formElement, inputs };
 };

@@ -19,15 +19,12 @@ export const eventsList = async (
   try {
     const events = await fetchApi(fetchPath, { token });
 
-    let empty = false;
     if (events.length === 0) {
       successMessage({
         parentContainer: sectionUl,
         innerText: 'No events here yet!',
         temporary: false
       });
-
-      empty = true;
     }
 
     if (events.length > 0 && events.length < 4) {
