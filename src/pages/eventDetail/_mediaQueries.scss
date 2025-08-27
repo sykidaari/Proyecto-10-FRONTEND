@@ -1,0 +1,30 @@
+@import '../../global';
+
+@media (max-width: 620px) {
+  .event-wrapper .event-article.detail {
+    flex-direction: column;
+
+    .content-wrapper {
+      width: 300px;
+      .category {
+        top: $spacing-M;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .event-wrapper .event-article.detail {
+    .content-wrapper {
+      width: 100%;
+    }
+    .img-wrapper {
+      img {
+        width: 100% !important;
+        height: fit-content !important;
+      }
+    }
+  }
+}

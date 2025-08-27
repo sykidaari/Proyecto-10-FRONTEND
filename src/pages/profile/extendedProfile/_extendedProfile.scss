@@ -7,11 +7,12 @@
 
   max-width: 900px;
   margin: auto;
-  margin-bottom: $spacing-XL;
+  margin-bottom: 50px;
 
   display: flex;
-  align-items: start;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: $spacing-L;
 
   article {
@@ -46,7 +47,7 @@
 
   .log-out-button {
     font-size: $font-L;
-
+    white-space: nowrap;
     color: $text-color-3;
     @extend %button-base-1;
   }

@@ -3,6 +3,7 @@ import { create } from '../../utils/elementCreator';
 import { removeOldElement } from '../../utils/removeOldElement';
 import './_form.scss';
 import './_eventForm.scss';
+import './_mediaQueries.scss';
 
 export const form = ({ parentContainer, option, type, blurParent = false }) => {
   removeOldElement(['.blur-div', '.form-wrapper', '.user-form']);
@@ -23,6 +24,11 @@ export const form = ({ parentContainer, option, type, blurParent = false }) => {
     });
 
     formParent = formWrapper;
+  } else {
+    const eventCreationButtonHider = create('div', {
+      className: 'hider',
+      appendTo: formParent
+    });
   }
 
   const formElement = create('form', {

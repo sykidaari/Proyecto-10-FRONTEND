@@ -1,6 +1,7 @@
 import { eventArticle } from '../../components/events/eventArticle/eventArticle';
 
 import './_eventDetail.scss';
+import './_mediaQueries.scss';
 import { attendanceSection } from './attendanceSection/attendanceSection';
 
 export const eventDetail = (main, event) => {

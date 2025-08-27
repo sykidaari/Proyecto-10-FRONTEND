@@ -1,0 +1,8 @@
+@import '../../global';
+
+@media (max-width: 920px) {
+  .event-creation-wrapper {
+    left: initial;
+    right: $spacing-M;
+  }
+}

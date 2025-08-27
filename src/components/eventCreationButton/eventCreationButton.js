@@ -2,6 +2,7 @@ import { createEvent } from '../../pages/createEvent/createEvent';
 import { create } from '../../utils/elementCreator';
 import { authError } from '../errorHandlers/authError/authError';
 import './_eventCreationButton.scss';
+import './_mediaQueries.scss';
 
 export const eventCreationButton = (app, main) => {
   const wrapper = create('div', {

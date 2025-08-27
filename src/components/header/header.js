@@ -1,5 +1,5 @@
 import './_header.scss';
-
+import './_mediaQueries.scss';
 import { create } from '../../utils/elementCreator';
 import { routes } from '../../data/routes';
 

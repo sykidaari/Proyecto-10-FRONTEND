@@ -3,6 +3,7 @@ import { fetchApi } from '../../utils/apiFetcher';
 import { create } from '../../utils/elementCreator';
 import { eventsList } from '../events/eventsList/eventsList';
 import './_filterSection.scss';
+import './_mediaQueries.scss';
 
 export const filterSection = (main) => {
   const filterSection = create('section', {

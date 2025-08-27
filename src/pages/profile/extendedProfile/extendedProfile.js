@@ -4,6 +4,7 @@ import { create } from '../../../utils/elementCreator';
 import { home } from '../../home/home';
 import { editProfile } from '../editProfile/editProfile';
 import './_extendedProfile.scss';
+import './_mediaqueries.scss';
 
 export const extendedProfile = (main, user, token) => {
   const {

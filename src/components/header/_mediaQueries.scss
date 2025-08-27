@@ -1,0 +1,18 @@
+@import '../../global';
+
+@media (max-width: 400px) {
+  header nav ul {
+    padding-right: $spacing-XS;
+    gap: $spacing-XXS;
+  }
+}
+
+@media (max-width: 270px) {
+  header nav ul {
+    #login-link,
+    #register-link {
+      padding-right: $spacing-XS;
+      padding-left: $spacing-XS;
+    }
+  }
+}

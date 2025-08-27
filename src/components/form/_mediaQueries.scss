@@ -1,0 +1,29 @@
+@import '../../global';
+
+@media (max-width: 920px) {
+  .hider {
+    left: initial;
+    right: $spacing-M;
+  }
+}
+
+@media (max-width: 310px) {
+  .form-wrapper,
+  .form,
+  .form fieldset {
+    padding-right: $spacing-XS;
+    padding-left: $spacing-XS;
+
+    .form-group {
+      width: calc(100vw - 50px);
+      input[type='file'] {
+        width: calc(100vw - 50px);
+        font-size: $font-S;
+      }
+    }
+  }
+
+  .event-form.edit_event fieldset {
+    padding-top: 80px !important;
+  }
+}
