@@ -27,3 +27,9 @@
     padding-top: 80px !important;
   }
 }
+
+@media (max-width: 266px) {
+  .login .form-group:first-of-type .error-div {
+    top: 48.5px;
+  }
+}

@@ -8,9 +8,11 @@
       width: 300px;
       .category {
         top: $spacing-M;
-        left: 50%;
-        transform: translateX(-50%);
+        left: $spacing-M;
       }
+    }
+    .edit-button {
+      bottom: 30px;
     }
   }
 }

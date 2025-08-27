@@ -12,12 +12,9 @@ export const emptyInputError = (inputs) => {
 
       const error = errorMessage({
         parentContainer: input.parentElement,
-        innerText: 'This field is required'
+        innerText: 'This field is required',
+        temporary: true
       });
-
-      setTimeout(() => {
-        error.remove();
-      }, 2000);
     }
   }
   if (hasEmpty) {
