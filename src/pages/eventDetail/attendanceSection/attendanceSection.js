@@ -125,6 +125,8 @@ export const attendanceSection = (main, parentContainer, article, event) => {
       attendButton.classList.add('attending');
       attendButton.innerText = 'Attending ✔';
     } catch (error) {
+      console.log(error);
+
       loaderElement.remove();
       errorMessage({
         parentContainer: attendanceSection,
