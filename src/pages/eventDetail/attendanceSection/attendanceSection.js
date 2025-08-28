@@ -97,7 +97,7 @@ export const attendanceSection = (main, parentContainer, article, event) => {
         data: { attendants: currentUserId },
         json: true
       });
-
+      console.log(req.body);
       console.log(res);
 
       ul.classList.remove('invisible');
