@@ -91,12 +91,14 @@ export const attendanceSection = (main, parentContainer, article, event) => {
     const loaderElement = loader(attendanceSection);
 
     try {
-      await fetchApi(`events/${event._id}`, {
+      const res = await fetchApi(`events/${event._id}`, {
         method: 'PUT',
         token,
         data: { attendants: currentUserId },
         json: true
       });
+
+      console.log(res);
 
       ul.classList.remove('invisible');
       if (emptyMessage) {
